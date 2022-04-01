@@ -1,0 +1,107 @@
+<div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="booking-cta" class="text-secondary">
+                        <h1>Book your flight today</h1>
+                    </div>
+                </div>
+                <div *ngIf="showFlights" class="courses-container">
+                                <li
+                                  *ngFor="let course of flights$ | async"
+                                >
+                                  <h3 matLine>{{ course.flightNumber | titlecase }}</h3>
+                                  <p matLine>
+                                    {{ course.flightName }}
+                                  </p>
+                                </li>
+                  </div>
+                <div *ngIf="!showFlights" class="col-md-7 col-md-offset-1">
+                    <div class="booking-form">
+                        <form [formGroup]="searchForm" (submit)="searchFlights()">
+                            <div class="form-group">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" formControlName="tripType"
+                                        id="inlineRadio1" value="oneway">
+                                    <label class="form-check-label" for="inlineRadio1">One Way</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" formControlName="tripType"
+                                        id="inlineRadio2" value="roundtrip">
+                                    <label class="form-check-label" for="inlineRadio2">Round Trip</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Flying from</span>
+                                        <input class="form-control" type="text" formControlName="flyingFrom" placeholder="City or airport">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Flying to</span>
+                                        <input class="form-control" type="text" formControlName="flyingTo" placeholder="City or airport">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Departing</span>
+                                        <input class="form-control" type="date" formControlName="departDate">
+                                    </div>
+                                </div>
+                                <div *ngIf="searchForm.controls.tripType.value !== 'oneway' " class="col-md-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Returning</span>
+                                        <input class="form-control" type="date" formControlName="returnDate">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <span class="form-label">Adults (18+)</span>
+                                        <select class="form-control" formControlName="adultPassengers">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <span class="form-label">Children (0-17)</span>
+                                        <select class="form-control" formControlName="childPassengers">
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <span class="form-label">Travel class</span>
+                                        <select class="form-control" formControlName="travelClass">
+                                            <option value="economy">Economy class</option>
+                                            <option value="business">Business class</option>
+                                            <option value="first">First class</option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                            </div><br>
+                            <div class="form-btn">
+                                <button class="btn btn-primary" [disabled]="!searchForm.valid">Search flights</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+{
+    "flights": [
+        {
+            "id": 1,
+            "flightNumber": "AI326",
+            "flightName": "AirIndia",
+            "sourceCity": "Hyderabad",
+            "destinationCity": "Chicago",
+            "airlineType": "Boeing777"
+        },
+        {
+            "id": 2,
+            "flightNumber": "AI965",
+            "flightName": "AirIndia",
+            "sourceCity": "Hyderabad",
+            "destinationCity": "New York",
+            "airlineType": "Boeing777"
+        },
+        {
+            "id": 3,
+            "flightNumber": "SG 265 ",
+            "flightName": "Spice Jet",
+            "sourceCity": "Hyderabad",
+            "destinationCity": "Banglore",
+            "airlineType": "Boeing777"
+        },
+        {
+            "id": 4,
+            "flightNumber": "SG 417",
+            "flightName": "Spice Jet",
+            "sourceCity": "Chennai",
+            "destinationCity": "Mumbai",
+            "airlineType": "Boeing777"
+        },
+        {
+            "id": 5,
+            "flightNumber": "IG 753",
+            "flightName": "Indigo",
+            "sourceCity": "Delhi",
+            "destinationCity": "Banglore",
+            "airlineType": "Boeing777"
+        }
+    ],
+    "users": [
+        {
+          "email": "foo@bar.com",
+          "password": "$2a$10$U5W0VK3gY8UMRP0e93Wy7OGH1BnN8tysWABkaUgjmHnwNivfZUd1G",
+          "id": 1
+        },
+        {
+          "email": "boo@far.com",
+          "password": "$2a$10$U5W0VK3gY8UMRP0e93Wy7OGH1BnN8tysWABkaUgjmHnwNivfZUd1G",
+          "id": 2
+        }
+      ]
+}

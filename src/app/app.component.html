@@ -1,0 +1,25 @@
+<div class="container-fluid p-0 mb-3">
+    <nav class="nav nav-pills bg-light">
+        <div class="nav-container">
+            <div class="flight-container">
+                <a class="nav-link rounded-0" routerLinkActive="active" routerLink="/home">Home</a>
+                <a class="nav-link rounded-0" routerLinkActive="active" routerLink="/book-flight">Book flight</a>
+                <ng-template [ngIf]="currentUser">
+                    <a class="nav-link rounded-0" routerLinkActive="active" routerLink="/manage-booking">Manage Booking</a>
+                    <a class="nav-link rounded-0" routerLinkActive="active" routerLink="/booking-history">Booking History</a>
+                </ng-template>
+            </div>
+            <div class="auth-container">
+                <ng-template #loggedOut>
+                    <a class="nav-link rounded-0" routerLinkActive="active" routerLink="/login">Login</a>
+                    <a class="nav-link rounded-0" routerLinkActive="active" routerLink="/register">Register</a>
+                </ng-template>
+                <ng-template [ngIf]="currentUser" [ngIfElse]="loggedOut">
+                    <a class="nav-link rounded-0" routerLinkActive="active" (click)="logout()" routerLink="/logout">Logout</a>
+                </ng-template>
+            </div>
+        </div>
+    </nav>
+</div>
+<router-outlet></router-outlet>
+
